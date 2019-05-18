@@ -1,49 +1,47 @@
 # git-utilities
 
-<!--
 ## Install
 
 ```shell
-npm i git-utilities
+npm i @brettz9/github-utilities
 ```
--->
 
 ## Use with Sourcetree
 
 You can add to Sourcetree any or all of the following Custom actions (being
-sure to change the `/path/to` portion to lead to where `git-utilities` is
+sure to change the `/path/to` portion to lead to where `@brettz9/git-utilities` is
 hosted.
 
 - **Menu Caption**: View File on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `$REPO/$FILE`
 
 - **Menu Caption**: Raw File on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=raw $REPO/$FILE`
 
 - **Menu Caption**: Blame File on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=blame $REPO/$FILE`
 
 - **Menu Caption**: History File on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=history $REPO/$FILE`
 
 - **Menu Caption**: Edit File on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=edit $REPO/$FILE`
 
 - **Menu Caption**: Blame File on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=blame $REPO/$FILE`
 
 - **Menu Caption**: Delete File on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=delete $REPO/$FILE`
 
 - **Menu Caption**: Directory on Github
-- **Script to run**: `/path/to/git-utilities/bin/open-git-url.sh`
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=directory $REPO/$FILE`
 
 You can also add `--branch=<branch>` within the parameters to target a

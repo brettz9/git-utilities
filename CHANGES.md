@@ -1,4 +1,4 @@
-# CHANGES for git-utilities
+# CHANGES for open-github
 
 ## 0.1.0
 
