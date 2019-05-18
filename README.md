@@ -106,3 +106,5 @@ Run `-h` to get the commands:
   1. Use `dialog-node` (already in use for errors) to get further info for
     commit from user (e.g., branches to rebase onto `master` or a specific
     commit by SHA)
+1. See [webappfind](https://github.com/brettz9/webappfind) (AtYourCommand)
+    for ideas of integration into Atom
