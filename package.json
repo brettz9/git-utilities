@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "example": "node --experimental-modules open-github.mjs --file /Users/brett/git-utilities/.eslintrc.js",
+    "example": "node --experimental-modules repo.mjs --file /Users/brett/git-utilities/.eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brett Zamir",
