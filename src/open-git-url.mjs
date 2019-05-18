@@ -6,7 +6,6 @@
 
 // Todo: We could change this file to `.js` in Node 12 (while keeping
 //   `type: "module"` in package.json root)
-import {existsSync} from 'fs';
 import {join, dirname, relative} from 'path';
 
 import commandLineArgs from 'command-line-args';
@@ -37,10 +36,6 @@ if (help) {
 const cwd = type === 'directory' && file === '.' ? process.cwd() : file;
 
 const getGitProjectPath = async () => {
-  if (existsSync((join(cwd, '.git')))) {
-    return cwd;
-  }
-
   const foundFile = await findUp('.git', {cwd, type: 'directory'});
   return (foundFile && dirname(foundFile)) || false;
 };
