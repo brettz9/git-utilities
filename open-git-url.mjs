@@ -33,7 +33,18 @@ const optionDefinitions = [
     name: 'type', alias: 't', type: String,
     description: 'Type of operation.  Defaults to "view".',
     typeLabel: `{underline ["view"|"raw"|"blame"|"history"|` +
-                  `"edit"|"delete"|"directory"]}`
+                  `"edit"|"delete"|"directory"|"commit"]}`
+  },
+  {
+    name: 'diff', alias: 'd', type: String,
+    description: `Diff (for the "commit" type). Defaults to ` +
+      `"default" (whatever is on use at Github).`,
+    typeLabel: `{underline ["unified"|"split"|"default"]}`
+  },
+  {
+    name: 'sha', alias: 's', type: String,
+    description: `The commit SHA`,
+    typeLabel: `{underline SHA}`
   },
   {
     name: 'help', alias: 'h', type: Boolean,
@@ -41,7 +52,12 @@ const optionDefinitions = [
   }
 ];
 const {
-  file, type, branch: userBranch, help
+  file,
+  type = 'view',
+  branch: userBranch = null,
+  help = false,
+  diff = false,
+  sha = null
 } = commandLineArgs(optionDefinitions);
 
 (async () => {
@@ -97,21 +113,26 @@ try {
     throw new Error(`Could not find a repository \`url\` at ${packageJSON}`);
   }
 
-  const fileRelativePath = relative(gitProjectPath, file);
-
-  // Todo: dialog (ideally with pull-down of branches) to choose branch?
-  let branch = userBranch;
-  if (!branch) {
-    let repo;
-    try {
-      repo = await Git.Repository.open(gitProjectPath);
-    } catch (err) {
-      throw new Error('Error opening Git repository');
+  let branch, fileRelativePath;
+  if (!sha || ['delete', 'edit'].includes(type)) {
+    if (sha && ['delete', 'edit'].includes(type)) {
+      console.warn('A SHA is not expected with the type ' + type);
     }
-    try {
-      branch = (await repo.getCurrentBranch()).shorthand();
-    } catch (err) {
-      throw new Error('Error getting current branch');
+    fileRelativePath = relative(gitProjectPath, file);
+    // Todo: dialog (ideally with pull-down of branches) to choose branch?
+    branch = userBranch;
+    if (!branch) {
+      let repo;
+      try {
+        repo = await Git.Repository.open(gitProjectPath);
+      } catch (err) {
+        throw new Error('Error opening Git repository');
+      }
+      try {
+        branch = (await repo.getCurrentBranch()).shorthand();
+      } catch (err) {
+        throw new Error('Error getting current branch');
+      }
     }
   }
 
@@ -119,19 +140,19 @@ try {
   switch (type) {
   default:
   case 'view':
-    url = urlBase + '/blob/' + branch + '/' + fileRelativePath;
+    url = urlBase + '/blob/' + sha || branch + '/' + fileRelativePath;
     break;
   case 'raw':
     url = urlBase.replace(
       'https://github.com',
       'https://raw.githubusercontent.com'
-    ) + branch + '/' + fileRelativePath;
+    ) + sha || branch + '/' + fileRelativePath;
     break;
   case 'blame':
-    url = urlBase + '/blame/' + branch + '/' + fileRelativePath;
+    url = urlBase + '/blame/' + sha || branch + '/' + fileRelativePath;
     break;
   case 'history':
-    url = urlBase + '/commits/' + branch + '/' + fileRelativePath;
+    url = urlBase + '/commits/' + sha || branch + '/' + fileRelativePath;
     break;
   case 'edit':
     url = urlBase + '/edit/' + branch + '/' + fileRelativePath;
@@ -140,7 +161,12 @@ try {
     url = urlBase + '/delete/' + branch + '/' + fileRelativePath;
     break;
   case 'directory':
-    url = urlBase + '/tree/' + branch + '/' + dirname(fileRelativePath);
+    url = urlBase + '/tree/' + sha || branch + '/' + dirname(fileRelativePath);
+    break;
+  case 'commit':
+    url = urlBase + '/commit/' + sha || branch + (diff ? '?diff=' + diff : '');
+    // Could technically also allow adding `#diff-` + sha_of_file to
+    //   go to specific file diff
     break;
   }
 
