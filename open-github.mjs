@@ -8,6 +8,7 @@ import commandLineArgs from 'command-line-args';
 import findUp from 'find-up';
 import open from 'open';
 import dialog from 'dialog-node';
+import ngu from 'normalize-git-url';
 
 const optionDefinitions = [
   {name: 'file', type: String},
@@ -44,8 +45,7 @@ try {
     throw new Error(`Could not find a repository field at ${packageJSON}`);
   }
   const repoURL = pkg.repository.url;
-  // Todo: Use utility to convert non-HTTPS Github URLs
-  const urlBase = repoURL;
+  const urlBase = ngu(repoURL).url;
   if (!urlBase) {
     throw new Error(`Could not find a repository \`url\` at ${packageJSON}`);
   }
