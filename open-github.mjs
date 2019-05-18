@@ -7,6 +7,7 @@ import {join, dirname, relative} from 'path';
 import commandLineArgs from 'command-line-args';
 import findUp from 'find-up';
 import open from 'open';
+import dialog from 'dialog-node';
 
 const optionDefinitions = [
   {name: 'file', type: String},
@@ -88,8 +89,19 @@ try {
   console.log('url', url);
   await open(url); // , {wait: true}
 } catch (err) {
-  // Todo: Run AppleScript:
-  // display dialog "Error: " & err giving up after 5
   console.log(err);
+  // Todo: Convert to promise and object args: https://github.com/bat-tomr/dialog-node/issues/5
+  dialog.error(
+    // Message
+    err.toString(),
+    // Title
+    'Error',
+    // Auto closing time (0 for no timeout)
+    0,
+    // Closed callback
+    function closed (code, retVal, stderr) {
+      console.log('Closed');
+    }
+  );
 }
 })();
