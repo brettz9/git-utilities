@@ -12,43 +12,59 @@ You can add to Sourcetree any or all of the following Custom actions (being
 sure to change the `/path/to` portion to lead to where `@brettz9/git-utilities` is
 hosted.
 
-- **Menu Caption**: View File on Github
+- **Menu Caption**: View File on Github (SHA commit)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--sha=$SHA $REPO/$FILE`
+
+- **Menu Caption**: View File on Github (Latest on branch)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `$REPO/$FILE`
 
-- **Menu Caption**: Directory on Github
+- **Menu Caption**: Directory on Github (SHA commit)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=directory --sha=$SHA $REPO/$FILE`
+
+- **Menu Caption**: Directory on Github (Latest on branch)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=directory $REPO/$FILE`
 
-- **Menu Caption**: Raw File on Github
+- **Menu Caption**: Raw File on Github (SHA commit)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=raw --sha=$SHA $REPO/$FILE`
+
+- **Menu Caption**: Raw File on Github (Latest on branch)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=raw $REPO/$FILE`
 
-- **Menu Caption**: Blame File on Github
+- **Menu Caption**: Blame File on Github (SHA commit)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=blame --sha=$SHA $REPO/$FILE`
+
+- **Menu Caption**: Blame File on Github (Latest on branch)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=blame $REPO/$FILE`
 
-- **Menu Caption**: History File on Github
+- **Menu Caption**: History File on Github (SHA commit)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=history --sha=$SHA $REPO/$FILE`
+
+- **Menu Caption**: History File on Github (Latest on branch)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=history $REPO/$FILE`
 
-- **Menu Caption**: Blame File on Github
-- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
-- **Parameters**: `--type=blame $REPO/$FILE`
-
-- **Menu Caption**: Commit on Github (Unified diff)
+- **Menu Caption**: Commit on Github (SHA commit, Unified diff)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=commit --diff=unified --sha=$SHA $REPO/$FILE`
 
-- **Menu Caption**: Commit on Github (Split diff)
+- **Menu Caption**: Commit on Github (SHA commit, Split diff)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=commit --diff=split --sha=$SHA $REPO/$FILE`
 
-- **Menu Caption**: Last commit on Github (Unified diff)
+- **Menu Caption**: Commit on Github (Latest on branch, Unified diff)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=commit --diff=unified $REPO/$FILE`
 
-- **Menu Caption**: Last commit on Github (Split diff)
+- **Menu Caption**: Commit on Github (Latest on branch, Split diff)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=commit --diff=split $REPO/$FILE`
 
