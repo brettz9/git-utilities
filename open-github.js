@@ -9,9 +9,10 @@ const findUp = require('find-up');
 const open = require('open');
 
 const optionDefinitions = [
-  {name: 'file', type: String}
+  {name: 'file', type: String},
+  {name: 'type', type: String}
 ];
-const {file} = commandLineArgs(optionDefinitions);
+const {file, type} = commandLineArgs(optionDefinitions);
 
 const cwd = file === '.' ? process.cwd() : file;
 
@@ -56,20 +57,37 @@ try {
   //    the current branch; dialog (ideally with pull-down) to choose branch?
   const branch = 'master';
 
-  const viewFileURL = urlBase + '/blob/' + branch + '/' + fileRelativePath;
+  let url;
+  switch (type) {
+  default:
+  case 'view':
+    url = urlBase + '/blob/' + branch + '/' + fileRelativePath;
+    break;
+  case 'raw':
+    url = urlBase.replace(
+      'https://github.com',
+      'https://raw.githubusercontent.com'
+    ) + branch + '/' + fileRelativePath;
+    break;
+  case 'blame':
+    url = urlBase + '/blame/' + branch + '/' + fileRelativePath;
+    break;
+  case 'history':
+    url = urlBase + '/commits/' + branch + '/' + fileRelativePath;
+    break;
+  case 'edit':
+    url = urlBase + '/edit/' + branch + '/' + fileRelativePath;
+    break;
+  case 'delete':
+    url = urlBase + '/delete/' + branch + '/' + fileRelativePath;
+    break;
+  case 'directory':
+    url = urlBase + '/tree/' + branch + '/' + dirname(fileRelativePath);
+    break;
+  }
 
-  console.log('url', viewFileURL);
-  await open(viewFileURL); // , {wait: true}
-
-  // Todo: Other options:
-  // const rawURL = urlBase.replace('https://github.com', https://raw.githubusercontent.com') + branch + '/' + fileRelativePath;
-  // const blameURL = urlBase + '/blame/' + branch + '/' + fileRelativePath;
-  // const historyURL = urlBase + '/commits/' + branch + '/' + fileRelativePath;
-  // const editFileURL = urlBase + '/edit/' + branch + '/' + fileRelativePath;
-  // const deleteFileURL = urlBase + '/delete/' + branch + '/' +
-  //  fileRelativePath;
-  // const viewDirectoryURL = urlBase + '/tree/' + branch + '/' +
-  //  dirname(fileRelativePath);
+  console.log('url', url);
+  await open(url); // , {wait: true}
 } catch (err) {
   // Todo: Dialog to indicate erred with message
   console.log(err);
