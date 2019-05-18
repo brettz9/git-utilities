@@ -1,4 +1,9 @@
-/* eslint-disable no-console */
+#!/bin/sh
+':' //# ; exec /usr/bin/env node --experimental-modules "$0" "$@"
+// Re: the above, See http://sambal.org/2014/02/passing-options-node-shebang-line/
+/* eslint-enable semi: ["error"], spaced-comment: ["error"],
+    eslint-comments/no-unused-enable: ["error"] */
+
 // Todo: We could change this file to `.js` in Node 12 (while keeping
 //   `type: "module"` in package.json root)
 import {existsSync} from 'fs';
@@ -43,7 +48,7 @@ const {
 if (help) {
   const usage = commandLineUsage([
     {
-      header: 'Git Opener Utility',
+      header: 'Git Open URL Utility',
       // Add italics: `{italic textToItalicize}`
       content: 'Open various URLs for a Git(hub) repository.'
     },
@@ -84,7 +89,10 @@ try {
     throw new Error(`Could not find a repository field at ${packageJSON}`);
   }
   const repoURL = pkg.repository.url;
-  const urlBase = ngu(repoURL).url;
+  const urlBase = ngu(repoURL).url
+    // Still leaving this
+    // eslint-disable-next-line unicorn/no-unsafe-regex
+    .replace(/\.git$/u, '');
   if (!urlBase) {
     throw new Error(`Could not find a repository \`url\` at ${packageJSON}`);
   }

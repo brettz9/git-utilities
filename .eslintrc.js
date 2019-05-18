@@ -18,6 +18,17 @@ module.exports = {
     },
     overrides: [
       {
+        files: ['open-git-url.mjs'],
+        rules: {
+          'no-console': 0,
+          // Need these all disabled at first
+          'spaced-comment': 0,
+          'node/shebang': 0,
+          'semi': 0,
+          'eslint-comments/no-unused-enable': 0
+        }
+      },
+      {
         files: ['test/**'],
         env: {
           mocha: true

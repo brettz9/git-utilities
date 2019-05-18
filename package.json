@@ -4,8 +4,12 @@
   "description": "CLI utility scripts for Git",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "open-git-url": "./open-git-url.mjs"
+  },
   "scripts": {
-    "example": "node --experimental-modules repo.mjs --file /Users/brett/git-utilities/.eslintrc.js",
+    "example-shell": "./bin/open-git-url.sh $INIT_CWD/.eslintrc.js",
+    "example-mjs": "./open-git-url.mjs $INIT_CWD/.eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brett Zamir",
