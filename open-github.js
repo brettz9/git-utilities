@@ -2,7 +2,7 @@
 'use strict';
 
 const {existsSync} = require('fs');
-const {join, dirname} = require('path');
+const {join, dirname, relative} = require('path');
 
 const commandLineArgs = require('command-line-args');
 const findUp = require('find-up');
@@ -46,16 +46,27 @@ try {
   if (!urlBase) {
     throw new Error(`Could not find a repository \`url\` at ${packageJSON}`);
   }
-  console.log('pkg', urlBase + '/blob/');
+
+  const fileRelativePath = relative(gitProjectPath, file);
+
   // Todo: Get current branch name from `git branch` (some Node library API for
   //    git commands?)
+  const branch = 'master';
 
-  // Todo: For <file-path> (or <directory-path>), get relative path by
-  //   subtracting `gitProjectPath` out of `file` (`path` method?)
-  // https://github.com/<user>/<repo>/blob/<branch>/<file-path>
+  const viewFileURL = urlBase + '/blob/' + branch + '/' + fileRelativePath;
 
-  // Todo: Option to open directory instead of file
-  // https://github.com/<user>/<repo>/tree/<branch>/<directory-path>
+  // Todo: Open URL
+  console.log('url', viewFileURL);
+
+  // Todo: Other options:
+  // const rawURL = urlBase.replace('https://github.com', https://raw.githubusercontent.com') + branch + '/' + fileRelativePath;
+  // const blameURL = urlBase + '/blame/' + branch + '/' + fileRelativePath;
+  // const historyURL = urlBase + '/commits/' + branch + '/' + fileRelativePath;
+  // const editFileURL = urlBase + '/edit/' + branch + '/' + fileRelativePath;
+  // const deleteFileURL = urlBase + '/delete/' + branch + '/' +
+  //  fileRelativePath;
+  // const viewDirectoryURL = urlBase + '/tree/' + branch + '/' +
+  //  dirname(fileRelativePath);
 } catch (err) {
   // Todo: Dialog to indicate erred with message
   console.log(err);
