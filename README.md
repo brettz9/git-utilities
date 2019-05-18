@@ -16,6 +16,10 @@ hosted.
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `$REPO/$FILE`
 
+- **Menu Caption**: Directory on Github
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=directory $REPO/$FILE`
+
 - **Menu Caption**: Raw File on Github
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=raw $REPO/$FILE`
@@ -28,21 +32,33 @@ hosted.
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=history $REPO/$FILE`
 
-- **Menu Caption**: Edit File on Github
-- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
-- **Parameters**: `--type=edit $REPO/$FILE`
-
 - **Menu Caption**: Blame File on Github
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=blame $REPO/$FILE`
 
+- **Menu Caption**: Commit on Github (Unified diff)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=commit --diff=unified --sha=$SHA $REPO/$FILE`
+
+- **Menu Caption**: Commit on Github (Split diff)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=commit --diff=split --sha=$SHA $REPO/$FILE`
+
+- **Menu Caption**: Last commit on Github (Unified diff)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=commit --diff=unified $REPO/$FILE`
+
+- **Menu Caption**: Last commit on Github (Split diff)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=commit --diff=split $REPO/$FILE`
+
+- **Menu Caption**: Edit File on Github
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=edit $REPO/$FILE`
+
 - **Menu Caption**: Delete File on Github
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=delete $REPO/$FILE`
-
-- **Menu Caption**: Directory on Github
-- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
-- **Parameters**: `--type=directory $REPO/$FILE`
 
 You can also add `--branch=<branch>` within the parameters to target a
 specific branch.

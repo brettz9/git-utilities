@@ -140,33 +140,35 @@ try {
   switch (type) {
   default:
   case 'view':
-    url = urlBase + '/blob/' + sha || branch + '/' + fileRelativePath;
+    url = urlBase + '/blob/' + (sha || branch) + '/' + fileRelativePath;
+    break;
+  case 'directory':
+    url = urlBase + '/tree/' + (sha || branch) + '/' +
+      dirname(fileRelativePath);
     break;
   case 'raw':
     url = urlBase.replace(
       'https://github.com',
       'https://raw.githubusercontent.com'
-    ) + sha || branch + '/' + fileRelativePath;
+    ) + (sha || branch) + '/' + fileRelativePath;
     break;
   case 'blame':
-    url = urlBase + '/blame/' + sha || branch + '/' + fileRelativePath;
+    url = urlBase + '/blame/' + (sha || branch) + '/' + fileRelativePath;
     break;
   case 'history':
-    url = urlBase + '/commits/' + sha || branch + '/' + fileRelativePath;
+    url = urlBase + '/commits/' + (sha || branch) + '/' + fileRelativePath;
+    break;
+  case 'commit':
+    url = urlBase + '/commit/' + (sha || branch) +
+      (diff ? '?diff=' + diff : '');
+    // Could technically also allow adding `#diff-` + sha_of_file to
+    //   go to specific file diff
     break;
   case 'edit':
     url = urlBase + '/edit/' + branch + '/' + fileRelativePath;
     break;
   case 'delete':
     url = urlBase + '/delete/' + branch + '/' + fileRelativePath;
-    break;
-  case 'directory':
-    url = urlBase + '/tree/' + sha || branch + '/' + dirname(fileRelativePath);
-    break;
-  case 'commit':
-    url = urlBase + '/commit/' + sha || branch + (diff ? '?diff=' + diff : '');
-    // Could technically also allow adding `#diff-` + sha_of_file to
-    //   go to specific file diff
     break;
   }
 
