@@ -15,7 +15,7 @@ import commandLineUsage from 'command-line-usage';
 const optionDefinitions = [
   {
     name: 'file', alias: 'f', type: String,
-    description: 'File (or directory) to process',
+    description: 'File (or directory) to process for opening its Web URL',
     typeLabel: '{underline file-path}'
   },
   {
