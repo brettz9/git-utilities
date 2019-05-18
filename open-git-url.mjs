@@ -48,7 +48,7 @@ const {
 if (help) {
   const usage = commandLineUsage([
     {
-      header: 'Git Open URL Utility',
+      header: 'Open Git URL Utility',
       // Add italics: `{italic textToItalicize}`
       content: 'Open various URLs for a Git(hub) repository.'
     },

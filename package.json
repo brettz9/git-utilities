@@ -1,5 +1,5 @@
 {
-  "name": "@brettz9/github-utilities",
+  "name": "@brettz9/git-utilities",
   "version": "0.1.0",
   "description": "CLI utility scripts for Git",
   "main": "index.js",

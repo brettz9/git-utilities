@@ -3,7 +3,7 @@
 ## Install
 
 ```shell
-npm i @brettz9/github-utilities
+npm i @brettz9/git-utilities
 ```
 
 ## Use with Sourcetree
