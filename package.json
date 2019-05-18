@@ -11,9 +11,12 @@
   "license": "MIT",
   "dependencies": {
     "command-line-args": "^5.1.1",
-    "find-up": "^4.0.0"
+    "find-up": "^4.0.0",
+    "open": "^6.3.0"
   },
-  "keywords": ["git"],
+  "keywords": [
+    "git"
+  ],
   "bugs": "https://github.com/brettz9/git-utilities/issues",
   "homepage": "https://github.com/brettz9/git-utilities",
   "engines": {
