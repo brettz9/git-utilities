@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "CLI utility scripts for Git",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "example": "node --experimental-modules open-github.mjs --file /Users/brett/git-utilities/.eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brett Zamir",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^10.0.3",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-ash-nazg": "^4.0.0",
     "eslint-config-standard": "^12.0.0",

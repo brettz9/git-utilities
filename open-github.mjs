@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-'use strict';
+// Todo: We could change this file to `.js` in Node 12 (while keeping
+//   `type: "module"` in package.json root)
+import {existsSync} from 'fs';
+import {join, dirname, relative} from 'path';
 
-const {existsSync} = require('fs');
-const {join, dirname, relative} = require('path');
-
-const commandLineArgs = require('command-line-args');
-const findUp = require('find-up');
-const open = require('open');
+import commandLineArgs from 'command-line-args';
+import findUp from 'find-up';
+import open from 'open';
 
 const optionDefinitions = [
   {name: 'file', type: String},
@@ -14,7 +14,7 @@ const optionDefinitions = [
 ];
 const {file, type} = commandLineArgs(optionDefinitions);
 
-const cwd = file === '.' ? process.cwd() : file;
+const cwd = type === 'directory' && file === '.' ? process.cwd() : file;
 
 const getGitProjectPath = async () => {
   if (existsSync((join(cwd, '.git')))) {
@@ -35,8 +35,7 @@ try {
 
   let pkg;
   try {
-    // eslint-disable-next-line global-require, import/no-dynamic-require
-    pkg = require(packageJSON);
+    pkg = (await import(packageJSON)).default;
   } catch (err) {
     throw new Error(`Trouble reading ${packageJSON}`);
   }
@@ -89,7 +88,8 @@ try {
   console.log('url', url);
   await open(url); // , {wait: true}
 } catch (err) {
-  // Todo: Dialog to indicate erred with message
+  // Todo: Run AppleScript:
+  // display dialog "Error: " & err giving up after 5
   console.log(err);
 }
 })();

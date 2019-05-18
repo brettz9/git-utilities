@@ -3,10 +3,9 @@ module.exports = {
       node: true,
       browser: false
     },
+    parser: "babel-eslint",
     extends: [
-      'ash-nazg/sauron-node',
-      // Override ash-nazg's current preference for ESM
-      'plugin:node/recommended-script'
+      'ash-nazg/sauron-node'
     ],
     settings: {
       polyfills: [
