@@ -10,13 +10,51 @@ import findUp from 'find-up';
 import open from 'open';
 import dialog from 'dialog-node';
 import ngu from 'normalize-git-url';
+import commandLineUsage from 'command-line-usage';
 
 const optionDefinitions = [
-  {name: 'file', type: String},
-  {name: 'branch', type: String},
-  {name: 'type', type: String}
+  {
+    name: 'file', alias: 'f', type: String,
+    description: 'File (or directory) to process',
+    typeLabel: '{underline file-path}'
+  },
+  {
+    name: 'branch', alias: 'b', type: String,
+    description: 'Optional branch to view (Defaults to current branch)',
+    typeLabel: '{underline branch-name}'
+  },
+  {
+    // Todo: Might allow multiple to open multiple URLs
+    name: 'type', alias: 't', type: String,
+    description: 'Type of operation.  Defaults to "view".',
+    typeLabel: `{underline ["view"|"raw"|"blame"|"history"|` +
+                  `"edit"|"delete"|"directory"]}`
+  },
+  {
+    name: 'help', alias: 'h', type: Boolean,
+    description: 'Display this help guide'
+  }
 ];
-const {file, type, branch: userBranch} = commandLineArgs(optionDefinitions);
+const {
+  file, type, branch: userBranch, help
+} = commandLineArgs(optionDefinitions);
+
+(async () => {
+if (help) {
+  const usage = commandLineUsage([
+    {
+      header: 'Git utilities',
+      content: 'Various Node.js utilities for interacting ' +
+        'with Git repositories.' // {italic textToItalicize}
+    },
+    {
+      header: 'Options',
+      optionList: optionDefinitions
+    }
+  ]);
+  console.log(usage);
+  return;
+}
 
 const cwd = type === 'directory' && file === '.' ? process.cwd() : file;
 
@@ -29,7 +67,6 @@ const getGitProjectPath = async () => {
   return (foundFile && dirname(foundFile)) || false;
 };
 
-(async () => {
 try {
   const gitProjectPath = await getGitProjectPath();
   if (!gitProjectPath) {
