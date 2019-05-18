@@ -55,6 +55,11 @@ wrapper application for Sourcetree that adds in path awareness.)
 But the shell script at least will work without these solutions, as it
 has the line `source ~/.bash_profile`.
 
+## Command line usage
+
+- `open-git-url` - You can run this by either a global npm install or within
+  a requiring project's `package.json`. Run `-h` to get the commands.
+
 ## To-dos
 
 1. Add various commit types and use in Sourcetree scripts
