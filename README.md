@@ -56,13 +56,13 @@ hosted.
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=commit --diff=unified --sha=$SHA $REPO/$FILE`
 
-- **Menu Caption**: Commit on Github (SHA commit, Split diff)
-- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
-- **Parameters**: `--type=commit --diff=split --sha=$SHA $REPO/$FILE`
-
 - **Menu Caption**: Commit on Github (Latest on branch, Unified diff)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
 - **Parameters**: `--type=commit --diff=unified $REPO/$FILE`
+
+- **Menu Caption**: Commit on Github (SHA commit, Split diff)
+- **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`
+- **Parameters**: `--type=commit --diff=split --sha=$SHA $REPO/$FILE`
 
 - **Menu Caption**: Commit on Github (Latest on branch, Split diff)
 - **Script to run**: `/path/to/@brettz9/git-utilities/bin/open-git-url.sh`

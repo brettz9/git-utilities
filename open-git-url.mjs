@@ -32,8 +32,8 @@ const optionDefinitions = [
     // Todo: Might allow multiple to open multiple URLs
     name: 'type', alias: 't', type: String,
     description: 'Type of operation.  Defaults to "view".',
-    typeLabel: `{underline ["view"|"raw"|"blame"|"history"|` +
-                  `"edit"|"delete"|"directory"|"commit"]}`
+    typeLabel: `{underline ["view" (or "blob")|"raw"|"blame"|"history"|` +
+                  `"edit"|"delete"|"directory" (or "tree")|"commit"]}`
   },
   {
     name: 'diff', alias: 'd', type: String,
@@ -139,12 +139,12 @@ try {
   let url;
   switch (type) {
   default:
-  case 'view':
+  case 'view': case 'blob':
     url = urlBase + '/blob/' + (sha || branch) + '/' + fileRelativePath;
     break;
-  case 'directory':
+  case 'directory': case 'tree':
     url = urlBase + '/tree/' + (sha || branch) + '/' +
-      dirname(fileRelativePath);
+      ((fileRelativePath && dirname(fileRelativePath)) || '');
     break;
   case 'raw':
     url = urlBase.replace(
@@ -153,10 +153,12 @@ try {
     ) + (sha || branch) + '/' + fileRelativePath;
     break;
   case 'blame':
-    url = urlBase + '/blame/' + (sha || branch) + '/' + fileRelativePath;
+    url = urlBase + '/blame/' + (sha || branch) + '/' +
+      (fileRelativePath || '');
     break;
   case 'history':
-    url = urlBase + '/commits/' + (sha || branch) + '/' + fileRelativePath;
+    url = urlBase + '/commits/' + (sha || branch) + '/' +
+      (fileRelativePath || '');
     break;
   case 'commit':
     url = urlBase + '/commit/' + (sha || branch) +
