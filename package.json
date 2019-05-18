@@ -7,7 +7,10 @@
   "bin": {
     "open-git-url": "./open-git-url.mjs"
   },
+  "browserslist": ["Node >= 10"],
   "scripts": {
+    "eslint": "eslint --ext js,md .",
+    "build-svg": "node --experimental-modules tools/build-cli-svg.mjs",
     "example-shell": "./bin/open-git-url.sh $INIT_CWD/.eslintrc.js",
     "example-mjs": "./open-git-url.mjs $INIT_CWD/.eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -38,6 +41,7 @@
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^10.0.3",
+    "ansi-to-svg": "^1.4.3",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-ash-nazg": "^4.0.0",

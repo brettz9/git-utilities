@@ -90,7 +90,11 @@ has the line `source ~/.bash_profile`.
 ## Command line usage
 
 - `open-git-url` - You can run this by either a global npm install or within
-  a requiring project's `package.json`. Run `-h` to get the commands.
+  a requiring project's `package.json`.
+
+Run `-h` to get the commands:
+
+[![cli.svg](https://github.com/brettz9/git-utilities/cli.svg)](cli.svg)
 
 ## To-dos
 

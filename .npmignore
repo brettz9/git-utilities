@@ -1,1 +1,2 @@
 .gitignore
+tools/build-cli-svg.mjs

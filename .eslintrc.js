@@ -9,6 +9,8 @@ module.exports = {
     ],
     settings: {
       polyfills: [
+        // Not sure why compat is reporting for non-Node
+        "URL"
       ],
       jsdoc: {
         // For `jsdoc/check-examples` in `ash-nazg`
