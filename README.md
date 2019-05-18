@@ -94,7 +94,7 @@ has the line `source ~/.bash_profile`.
 
 Run `-h` to get the commands:
 
-[![cli.svg](https://github.com/brettz9/git-utilities/cli.svg)](cli.svg)
+[![cli.svg](https://brettz9.github.io/git-utilities/cli.svg)](cli.svg)
 
 ## To-dos
 
