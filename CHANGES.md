@@ -1,5 +1,9 @@
 # CHANGES for @brettz9/git-utilities
 
+## 1.1.0
+
+- Due to mistaken version pushed to npm, revisioning as 1.1.0
+
 ## 0.2.0
 
 - Fix: Allow directory and history to be missing file info
