@@ -153,8 +153,7 @@ try {
     ) + (sha || branch) + '/' + fileRelativePath;
     break;
   case 'blame':
-    url = urlBase + '/blame/' + (sha || branch) + '/' +
-      (fileRelativePath || '');
+    url = urlBase + '/blame/' + (sha || branch) + '/' + fileRelativePath;
     break;
   case 'history':
     url = urlBase + '/commits/' + (sha || branch) + '/' +
