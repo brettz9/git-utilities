@@ -5,6 +5,7 @@ import {existsSync} from 'fs';
 import {join, dirname, relative} from 'path';
 
 import commandLineArgs from 'command-line-args';
+import Git from 'nodegit';
 import findUp from 'find-up';
 import open from 'open';
 import dialog from 'dialog-node';
@@ -12,9 +13,10 @@ import ngu from 'normalize-git-url';
 
 const optionDefinitions = [
   {name: 'file', type: String},
+  {name: 'branch', type: String},
   {name: 'type', type: String}
 ];
-const {file, type} = commandLineArgs(optionDefinitions);
+const {file, type, branch: userBranch} = commandLineArgs(optionDefinitions);
 
 const cwd = type === 'directory' && file === '.' ? process.cwd() : file;
 
@@ -52,10 +54,21 @@ try {
 
   const fileRelativePath = relative(gitProjectPath, file);
 
-  // Todo: Get current branch name from `git branch` (some Node library API for
-  //    git commands?); but keep option to open in `master` even if that is not
-  //    the current branch; dialog (ideally with pull-down) to choose branch?
-  const branch = 'master';
+  // Todo: dialog (ideally with pull-down of branches) to choose branch?
+  let branch = userBranch;
+  if (!branch) {
+    let repo;
+    try {
+      repo = await Git.Repository.open(gitProjectPath);
+    } catch (err) {
+      throw new Error('Error opening Git repository');
+    }
+    try {
+      branch = (await repo.getCurrentBranch()).shorthand();
+    } catch (err) {
+      throw new Error('Error getting current branch');
+    }
+  }
 
   let url;
   switch (type) {
