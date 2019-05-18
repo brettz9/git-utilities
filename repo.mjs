@@ -14,7 +14,7 @@ import commandLineUsage from 'command-line-usage';
 
 const optionDefinitions = [
   {
-    name: 'file', alias: 'f', type: String,
+    name: 'file', alias: 'f', type: String, defaultOption: true,
     description: 'File (or directory) to process for opening its Web URL',
     typeLabel: '{underline file-path}'
   },
@@ -43,9 +43,9 @@ const {
 if (help) {
   const usage = commandLineUsage([
     {
-      header: 'Git utilities',
-      content: 'Various Node.js utilities for interacting ' +
-        'with Git repositories.' // {italic textToItalicize}
+      header: 'Git Opener Utility',
+      // Add italics: `{italic textToItalicize}`
+      content: 'Open various URLs for a Git(hub) repository.'
     },
     {
       header: 'Options',
