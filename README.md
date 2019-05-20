@@ -99,7 +99,7 @@ Run `-h` to get the commands:
 ## To-dos
 
 1. Allow passing in cwd (or defaulting to `process.cwd()`).
-1. Refactor to make export which just return the URL that would be used
+1. Refactor to make export which just returns the URL that would be used
 1. Document with some CLI examples
 1. Add various commit types and use in Sourcetree scripts
 1. Script to rebase all branches at a certain depth from a given commit (default 1?)
