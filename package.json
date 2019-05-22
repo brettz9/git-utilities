@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "eslint": "eslint --ext js,md,html .",
-    "build-svg": "node --experimental-modules tools/build-cli-svg.mjs",
+    "build-cli-html": "node --experimental-modules tools/build-cli-html.mjs",
+    "build-cli-svg": "node --experimental-modules tools/build-cli-svg.mjs",
     "example-shell": "./bin/open-git-url.sh $INIT_CWD/.eslintrc.js",
     "example-mjs": "./src/open-git-url.mjs $INIT_CWD/.eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^11.0.0",
+    "ansi-to-html": "^0.6.11",
     "ansi-to-svg": "^1.4.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.3.0",

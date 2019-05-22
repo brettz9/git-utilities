@@ -1,5 +1,12 @@
 # CHANGES for @brettz9/git-utilities
 
+## ?
+
+- Docs: Build HTML output of CLI API (using ansi-to-html)
+- Docs: Build SVG output of CLI API (using ansi-to-svg)
+- npm: Add eslint script and build-cli-svg script
+- npm: Update devDeps
+
 ## 1.2.0
 
 - Linting: Add HTML file linting (in case adding)
