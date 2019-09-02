@@ -1,5 +1,11 @@
 # CHANGES for @brettz9/git-utilities
 
+## 1.2.0
+
+- Linting: Add HTML file linting (in case adding)
+- example script: fix path
+- npm: Update deps and devDeps
+
 ## 1.1.0
 
 - Due to mistaken version pushed to npm, revisioning as 1.1.0
