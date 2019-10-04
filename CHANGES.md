@@ -1,7 +1,10 @@
 # CHANGES for @brettz9/git-utilities
 
-## ?
+## 1.3.0
 
+- Linting: Update
+- Update: Switch from nodegit to isomorphic git;
+    devDep: switch to fork of ansi-to-html (for actual build)
 - Docs: Build HTML output of CLI API (using ansi-to-html)
 - Docs: Build SVG output of CLI API (using ansi-to-svg)
 - npm: Add eslint script and build-cli-svg script

@@ -1,21 +1,22 @@
 #!/bin/sh
 ':' //# ; exec /usr/bin/env node --experimental-modules "$0" "$@"
 // Re: the above, See http://sambal.org/2014/02/passing-options-node-shebang-line/
-/* eslint-enable semi: ["error"], spaced-comment: ["error"],
-    eslint-comments/no-unused-enable: ["error"] */
 
 // Todo: We could change this file to `.js` in Node 12 (while keeping
 //   `type: "module"` in package.json root)
+import fs from 'fs';
 import {join, dirname, relative} from 'path';
 
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
-import Git from 'nodegit';
+import git from 'isomorphic-git';
 import findUp from 'find-up';
 import open from 'open';
 import dialog from 'dialog-node';
 import ngu from 'normalize-git-url';
 import {cliSections, optionDefinitions} from './optionDefinitions.mjs';
+
+git.plugins.set('fs', fs);
 
 const {
   file,
@@ -58,8 +59,6 @@ try {
   }
   const repoURL = pkg.repository.url;
   const urlBase = ngu(repoURL).url
-    // Still leaving this
-    // eslint-disable-next-line unicorn/no-unsafe-regex
     .replace(/\.git$/u, '');
   if (!urlBase) {
     throw new Error(`Could not find a repository \`url\` at ${packageJSON}`);
@@ -74,15 +73,10 @@ try {
     // Todo: dialog (ideally with pull-down of branches) to choose branch?
     branch = userBranch;
     if (!branch) {
-      let repo;
       try {
-        repo = await Git.Repository.open(gitProjectPath);
+        branch = await git.currentBranch({dir: gitProjectPath});
       } catch (err) {
-        throw new Error('Error opening Git repository');
-      }
-      try {
-        branch = (await repo.getCurrentBranch()).shorthand();
-      } catch (err) {
+        console.log('err', err);
         throw new Error('Error getting current branch');
       }
     }

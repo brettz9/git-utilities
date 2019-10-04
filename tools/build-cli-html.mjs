@@ -9,7 +9,7 @@ const {promises: {writeFile}} = fs;
 const ansiToHTML = new AnsiToHTML({newline: true, space: true});
 
 const ansiText = commandLineUsage(cliSections);
-console.log('a', ansiText.replace(/\u001B/gu, '<esc>'));
+// console.log('a', ansiText.replace(/\u001B/gu, '<esc>'));
 
 (async () => {
 await writeFile(
