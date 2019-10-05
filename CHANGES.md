@@ -1,5 +1,9 @@
 # CHANGES for @brettz9/git-utilities
 
+## ?
+
+- npm: Update devDeps
+
 ## 1.3.0
 
 - Linting: Update
