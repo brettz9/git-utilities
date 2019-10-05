@@ -1,7 +1,9 @@
 # CHANGES for @brettz9/git-utilities
 
-## ?
+## 1.3.1
 
+- Fix: Stop hard-coding path to local file
+- npm: Put deps next to devDeps
 - npm: Update devDeps
 
 ## 1.3.0

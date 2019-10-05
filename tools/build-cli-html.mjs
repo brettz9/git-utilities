@@ -1,7 +1,7 @@
 import fs from 'fs';
 import commandLineUsage from 'command-line-usage';
+import AnsiToHTML from 'ansi-to-html/lib/ansi_to_html.js';
 import {cliSections} from '../src/optionDefinitions.mjs';
-import AnsiToHTML from '../../ansi-to-html/src/ansi_to_html.js';
 
 // eslint-disable-next-line node/no-unsupported-features/node-builtins
 const {promises: {writeFile}} = fs;
