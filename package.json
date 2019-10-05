@@ -18,15 +18,6 @@
   "author": "Brett Zamir",
   "contributors": [],
   "license": "MIT",
-  "dependencies": {
-    "command-line-args": "^5.1.1",
-    "command-line-usage": "^6.0.2",
-    "dialog-node": "^0.2.1",
-    "find-up": "^4.1.0",
-    "isomorphic-git": "^0.67.2",
-    "normalize-git-url": "^3.0.2",
-    "open": "^6.4.0"
-  },
   "keywords": [
     "git"
   ],
@@ -38,6 +29,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/brettz9/git-utilities"
+  },
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.0.2",
+    "dialog-node": "^0.2.1",
+    "find-up": "^4.1.0",
+    "isomorphic-git": "^0.67.2",
+    "normalize-git-url": "^3.0.2",
+    "open": "^6.4.0"
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^12.0.0",
