@@ -108,3 +108,4 @@ Run `-h` to get the commands:
     commit by SHA)
 1. See [webappfind](https://github.com/brettz9/webappfind) (AtYourCommand)
     for ideas of integration into Atom
+1. Use `command-line-publish` for CLI building
