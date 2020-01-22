@@ -1,5 +1,10 @@
 # CHANGES for @brettz9/git-utilities
 
+## 1.4.0
+
+- Refactoring: Switch to CJS
+- Build: Use `command-line-publish`
+
 ## 1.3.1
 
 - Fix: Stop hard-coding path to local file
