@@ -5,7 +5,8 @@ module.exports = {
     },
     parser: "babel-eslint",
     extends: [
-      'ash-nazg/sauron-node'
+      'ash-nazg/sauron-node',
+      'plugin:node/recommended-script'
     ],
     settings: {
       polyfills: [
@@ -20,7 +21,7 @@ module.exports = {
     },
     overrides: [
       {
-        files: ['open-git-url.mjs'],
+        files: ['open-git-url.js'],
         rules: {
           'no-console': 0,
           // Need these all disabled at first
@@ -55,9 +56,7 @@ module.exports = {
           'node/no-missing-require': 'off',
           'func-names': 'off',
           'import/newline-after-import': 'off',
-          strict: 'off',
-          // Disable until eslint-plugin-jsdoc may fix: https://github.com/gajus/eslint-plugin-jsdoc/issues/211
-          indent: 'off'
+          strict: 'off'
         }
       }
     ],
@@ -67,8 +66,8 @@ module.exports = {
       module: 'readonly',
       exports: 'writable'
     },
-    plugins: [
-    ],
     rules: {
+      'node/exports-style': 0,
+      'import/no-commonjs': 0
     }
   };

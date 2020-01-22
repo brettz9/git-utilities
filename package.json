@@ -3,16 +3,15 @@
   "version": "1.3.1",
   "description": "CLI utility scripts for Git",
   "main": "index.js",
-  "type": "module",
   "bin": {
-    "open-git-url": "./open-git-url.mjs"
+    "open-git-url": "./src/open-git-url.js"
   },
   "scripts": {
     "eslint": "eslint --ext js,md,html .",
-    "build-cli-html": "node --experimental-modules tools/build-cli-html.mjs",
-    "build-cli-svg": "node --experimental-modules tools/build-cli-svg.mjs",
+    "build-cli-html": "clp --format=html --config=\"src/optionDefinitions.js\" \"cli.html\"",
+    "build-cli-svg": "clp --format=svg --config=\"src/optionDefinitions.js\" \"cli.svg\"",
     "example-shell": "./bin/open-git-url.sh $INIT_CWD/.eslintrc.js",
-    "example-mjs": "./src/open-git-url.mjs $INIT_CWD/.eslintrc.js",
+    "example-js": "./src/open-git-url.js $INIT_CWD/.eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brett Zamir",
@@ -24,7 +23,7 @@
   "bugs": "https://github.com/brettz9/git-utilities/issues",
   "homepage": "https://github.com/brettz9/git-utilities",
   "engines": {
-    "node": ">= 10.11.0"
+    "node": ">=10.11.0"
   },
   "repository": {
     "type": "git",
@@ -32,34 +31,36 @@
   },
   "dependencies": {
     "command-line-args": "^5.1.1",
-    "command-line-usage": "^6.0.2",
+    "command-line-usage": "^6.1.0",
     "dialog-node": "^0.2.1",
     "find-up": "^4.1.0",
-    "isomorphic-git": "^0.67.2",
+    "isomorphic-git": "^0.78.0",
     "normalize-git-url": "^3.0.2",
-    "open": "^6.4.0"
+    "open": "^7.0.0"
   },
   "devDependencies": {
-    "@mysticatea/eslint-plugin": "^12.0.0",
+    "@mysticatea/eslint-plugin": "^13.0.0",
     "ansi-to-html": "git+https://github.com/brettz9/ansi-to-html.git#css-publish",
     "ansi-to-svg": "^1.4.3",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.5.1",
-    "eslint-config-ash-nazg": "^11.0.1",
+    "command-line-publish": "^0.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-ash-nazg": "^16.5.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-array-func": "^3.1.3",
     "eslint-plugin-compat": "^3.3.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsdoc": "^15.9.10",
-    "eslint-plugin-markdown": "^1.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsdoc": "^20.3.1",
+    "eslint-plugin-markdown": "^1.0.1",
+    "eslint-plugin-no-unsanitized": "^3.0.2",
     "eslint-plugin-no-use-extend-native": "^0.4.1",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-sonarjs": "^0.4.0",
+    "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^12.0.2",
-    "typescript": "^3.6.3"
+    "eslint-plugin-unicorn": "^15.0.1",
+    "typescript": "^3.7.5"
   }
 }

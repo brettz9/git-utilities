@@ -1,3 +1,5 @@
+'use strict';
+
 const optionDefinitions = [
   {
     name: 'file', alias: 'f', type: String, defaultOption: true,
@@ -45,4 +47,5 @@ const cliSections = [
   }
 ];
 
-export {cliSections, optionDefinitions};
+exports.sections = cliSections;
+exports.definitions = optionDefinitions;

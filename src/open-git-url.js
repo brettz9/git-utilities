@@ -1,20 +1,22 @@
-#!/bin/sh
-':' //# ; exec /usr/bin/env node --experimental-modules "$0" "$@"
-// Re: the above, See http://sambal.org/2014/02/passing-options-node-shebang-line/
+#!/usr/bin/env node
+'use strict';
 
 // Todo: We could change this file to `.js` in Node 12 (while keeping
 //   `type: "module"` in package.json root)
-import fs from 'fs';
-import {join, dirname, relative} from 'path';
+const fs = require('fs');
+const {join, dirname, relative} = require('path');
 
-import commandLineArgs from 'command-line-args';
-import commandLineUsage from 'command-line-usage';
-import git from 'isomorphic-git';
-import findUp from 'find-up';
-import open from 'open';
-import dialog from 'dialog-node';
-import ngu from 'normalize-git-url';
-import {cliSections, optionDefinitions} from './optionDefinitions.mjs';
+const commandLineArgs = require('command-line-args');
+const commandLineUsage = require('command-line-usage');
+const git = require('isomorphic-git');
+const findUp = require('find-up');
+const open = require('open');
+const dialog = require('dialog-node');
+const ngu = require('normalize-git-url');
+const {
+  sections: cliSections,
+  definitions: optionDefinitions
+} = require('./optionDefinitions.js');
 
 git.plugins.set('fs', fs);
 
@@ -50,7 +52,9 @@ try {
 
   let pkg;
   try {
-    pkg = (await import(packageJSON)).default;
+    // pkg = (await import(packageJSON)).default;
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    pkg = require(packageJSON);
   } catch (err) {
     throw new Error(`Trouble reading ${packageJSON}`);
   }
@@ -120,7 +124,7 @@ try {
   }
 
   console.log('url', url);
-  await open(url); // , {wait: true}
+  await open(url, {url: true}); // , {wait: true}
 } catch (err) {
   console.log(err);
   // Todo: Convert to promise and object args: https://github.com/bat-tomr/dialog-node/issues/5

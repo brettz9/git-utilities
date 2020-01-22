@@ -1,3 +1,1 @@
 .gitignore
-tools/build-cli-html.mjs
-tools/build-cli-svg.mjs
