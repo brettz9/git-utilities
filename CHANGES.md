@@ -1,5 +1,10 @@
 # CHANGES for @brettz9/git-utilities
 
+## ?
+
+- npm: Update deps. (isomorphic-git, open)
+- npm: Update devDeps.
+
 ## 1.4.0
 
 - Refactoring: Switch to CJS

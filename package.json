@@ -34,25 +34,25 @@
     "command-line-usage": "^6.1.0",
     "dialog-node": "^0.2.1",
     "find-up": "^4.1.0",
-    "isomorphic-git": "^0.78.0",
+    "isomorphic-git": "^0.78.3",
     "normalize-git-url": "^3.0.2",
-    "open": "^7.0.0"
+    "open": "^7.0.2"
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^13.0.0",
     "ansi-to-html": "git+https://github.com/brettz9/ansi-to-html.git#css-publish",
     "ansi-to-svg": "^1.4.3",
     "babel-eslint": "^10.0.3",
-    "command-line-publish": "^0.6.0",
+    "command-line-publish": "^0.7.0",
     "eslint": "^6.8.0",
-    "eslint-config-ash-nazg": "^16.5.0",
+    "eslint-config-ash-nazg": "^17.1.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-array-func": "^3.1.3",
-    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-compat": "^3.5.1",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jsdoc": "^20.3.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsdoc": "^21.0.0",
     "eslint-plugin-markdown": "^1.0.1",
     "eslint-plugin-no-unsanitized": "^3.0.2",
     "eslint-plugin-no-use-extend-native": "^0.4.1",
@@ -60,7 +60,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^15.0.1",
+    "eslint-plugin-unicorn": "^16.0.0",
     "typescript": "^3.7.5"
   }
 }
