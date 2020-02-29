@@ -1,5 +1,10 @@
 # CHANGES for @brettz9/git-utilities
 
+## 1.6.0
+
+- Update: Per latest `isomorphic-git` API
+- npm: Update `isomorphic-git`
+
 ## 1.5.0
 
 - Enhancement: Make a programmatic export (moving binary file to `bin`)

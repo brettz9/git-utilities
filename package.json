@@ -1,6 +1,6 @@
 {
   "name": "@brettz9/git-utilities",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "CLI utility scripts for Git",
   "main": "src/index.js",
   "bin": {
@@ -35,7 +35,7 @@
     "command-line-basics": "^0.7.0",
     "dialog-node": "https://github.com/brettz9/dialog-node#html",
     "find-up": "^4.1.0",
-    "isomorphic-git": "^0.78.3",
+    "isomorphic-git": "^1.1.2",
     "normalize-git-url": "^3.0.2",
     "open": "^7.0.2"
   },

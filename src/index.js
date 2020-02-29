@@ -8,8 +8,6 @@ const open = require('open');
 const dialog = require('dialog-node');
 const ngu = require('normalize-git-url');
 
-git.plugins.set('fs', fs);
-
 // Todo: Make logging optional
 
 exports.openGitURL = async ({
@@ -63,7 +61,7 @@ exports.openGitURL = async ({
       branch = userBranch;
       if (!branch) {
         try {
-          branch = await git.currentBranch({dir: gitProjectPath});
+          branch = await git.currentBranch({fs, dir: gitProjectPath});
         } catch (err) {
           // eslint-disable-next-line no-console
           console.log('err', err);
