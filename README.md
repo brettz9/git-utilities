@@ -94,10 +94,11 @@ has the line `source ~/.bash_profile`.
 
 Run `-h` to get the commands:
 
-[![cli.svg](https://brettz9.github.io/git-utilities/cli.svg)](cli.svg)
+[![doc-includes/cli.svg](https://brettz9.github.io/git-utilities/cli.svg)](doc-includes/cli.svg)
 
 ## To-dos
 
+1. Add tests and coverage
 1. Allow passing in cwd (or defaulting to `process.cwd()`).
 1. Refactor to make export which just returns the URL that would be used
 1. Document with some CLI examples
@@ -108,4 +109,8 @@ Run `-h` to get the commands:
     commit by SHA)
 1. See [webappfind](https://github.com/brettz9/webappfind) (AtYourCommand)
     for ideas of integration into Atom
-1. Use `command-line-publish` for CLI building
+1. See <https://github.com/tjunnone/npm-check-updates/issues/570>; might
+    split up so as to also be able to query `npm view . repository` (or
+    `npm view <npm-pkg-name> repository`) and use that as a base to check
+    (via `HEAD` or API requests the presence of changes files) and also
+    to use npm packages for opening their Github commit history, etc. URLs.

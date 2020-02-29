@@ -1,7 +1,12 @@
 # CHANGES for @brettz9/git-utilities
 
-## ?
+## 1.5.0
 
+- Enhancement: Make a programmatic export (moving binary file to `bin`)
+- Refactoring: Use `command-line-basics`
+- Docs: Move SVG files to `/doc-includes`
+- npm: Add `cli` script
+- npm: Point to fork of `dialog-node`
 - npm: Update deps. (isomorphic-git, open)
 - npm: Update devDeps.
 

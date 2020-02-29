@@ -21,17 +21,6 @@ module.exports = {
     },
     overrides: [
       {
-        files: ['open-git-url.js'],
-        rules: {
-          'no-console': 0,
-          // Need these all disabled at first
-          'spaced-comment': 0,
-          'node/shebang': 0,
-          'semi': 0,
-          'eslint-comments/no-unused-enable': 0
-        }
-      },
-      {
         files: ['test/**'],
         env: {
           mocha: true
@@ -68,6 +57,8 @@ module.exports = {
     },
     rules: {
       'node/exports-style': 0,
-      'import/no-commonjs': 0
+      'import/no-commonjs': 0,
+      'no-process-exit': 0,
+      'unicorn/no-process-exit': 2
     }
   };

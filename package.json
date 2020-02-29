@@ -1,17 +1,19 @@
 {
   "name": "@brettz9/git-utilities",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "CLI utility scripts for Git",
-  "main": "index.js",
+  "main": "src/index.js",
   "bin": {
-    "open-git-url": "./src/open-git-url.js"
+    "open-git-url": "./bin/open-git-url.js"
   },
   "scripts": {
     "eslint": "eslint --ext js,md,html .",
-    "build-cli-html": "clp --format=html --config=\"src/optionDefinitions.js\" \"cli.html\"",
-    "build-cli-svg": "clp --format=svg --config=\"src/optionDefinitions.js\" \"cli.svg\"",
+    "build-cli-html": "clp --format=html --config=\"src/optionDefinitions.js\" \"doc-includes/cli.html\"",
+    "build-cli-svg": "clp --format=svg --config=\"src/optionDefinitions.js\" \"doc-includes/cli.svg\"",
+    "build-cli": "npm run build-cli-svg && npm run build-cli-html",
     "example-shell": "./bin/open-git-url.sh $INIT_CWD/.eslintrc.js",
-    "example-js": "./src/open-git-url.js $INIT_CWD/.eslintrc.js",
+    "example-js": "./bin/open-git-url.js $INIT_CWD/.eslintrc.js",
+    "cli": "./bin/open-git-url.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brett Zamir",
@@ -30,9 +32,8 @@
     "url": "https://github.com/brettz9/git-utilities"
   },
   "dependencies": {
-    "command-line-args": "^5.1.1",
-    "command-line-usage": "^6.1.0",
-    "dialog-node": "^0.2.1",
+    "command-line-basics": "^0.7.0",
+    "dialog-node": "https://github.com/brettz9/dialog-node#html",
     "find-up": "^4.1.0",
     "isomorphic-git": "^0.78.3",
     "normalize-git-url": "^3.0.2",
@@ -40,27 +41,25 @@
   },
   "devDependencies": {
     "@mysticatea/eslint-plugin": "^13.0.0",
-    "ansi-to-html": "git+https://github.com/brettz9/ansi-to-html.git#css-publish",
-    "ansi-to-svg": "^1.4.3",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "command-line-publish": "^0.7.0",
     "eslint": "^6.8.0",
-    "eslint-config-ash-nazg": "^17.1.0",
+    "eslint-config-ash-nazg": "^17.2.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-array-func": "^3.1.3",
+    "eslint-plugin-array-func": "^3.1.4",
     "eslint-plugin-compat": "^3.5.1",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsdoc": "^21.0.0",
-    "eslint-plugin-markdown": "^1.0.1",
+    "eslint-plugin-markdown": "^1.0.2",
     "eslint-plugin-no-unsanitized": "^3.0.2",
     "eslint-plugin-no-use-extend-native": "^0.4.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-unicorn": "^16.0.0",
-    "typescript": "^3.7.5"
+    "eslint-plugin-unicorn": "^16.1.1",
+    "typescript": "^3.8.3"
   }
 }
