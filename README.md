@@ -112,5 +112,6 @@ Run `-h` to get the commands:
 1. See <https://github.com/tjunnone/npm-check-updates/issues/570>; might
     split up so as to also be able to query `npm view . repository` (or
     `npm view <npm-pkg-name> repository`) and use that as a base to check
-    (via `HEAD` or API requests the presence of changes files) and also
-    to use npm packages for opening their Github commit history, etc. URLs.
+    (via `HEAD` or API requests the presence of CHANGES files, licenses, etc.)
+    and also to use npm packages for opening their Github commit history,
+    etc. URLs.
