@@ -104,7 +104,7 @@ Run `-h` to get the commands:
 1. Document with some CLI examples
 1. Add various commit types and use in Sourcetree scripts
 1. Script to rebase all branches at a certain depth from a given commit (default 1?)
-  1. Use `dialog-node` (already in use for errors) to get further info for
+    1. Use `dialog-node` (already in use for errors) to get further info for
     commit from user (e.g., branches to rebase onto `master` or a specific
     commit by SHA)
 1. See [webappfind](https://github.com/brettz9/webappfind) (AtYourCommand)
@@ -115,3 +115,5 @@ Run `-h` to get the commands:
     (via `HEAD` or API requests the presence of CHANGES files, licenses, etc.)
     and also to use npm packages for opening their Github commit history,
     etc. URLs.
+1. Ensure working with global install (useful to be able to use on CL to
+    open a Git URL from within the directory of a repo)
