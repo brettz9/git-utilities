@@ -115,6 +115,9 @@ Run `-h` to get the commands:
     (via `HEAD` or API requests the presence of CHANGES files, licenses, etc.)
     and also to use npm packages for opening their Github commit history,
     etc. URLs.
+    1. Allow likes of ncu to choose a package by number, then querying it
+        (with an option to query old version?), e.g., to get CHANGES,
+        `/commits` URL, main `/tree` URL, etc.
 1. Ensure working with global install (useful to be able to use on CL to
     open a Git URL from within the directory of a repo)
 1. Change to work with any Git site (allowing templates for URL building)
