@@ -1,6 +1,6 @@
 {
   "name": "@brettz9/git-utilities",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "CLI utility scripts for Git",
   "main": "src/index.js",
   "bin": {

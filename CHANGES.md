@@ -1,6 +1,6 @@
 # CHANGES for @brettz9/git-utilities
 
-## ?
+## 1.7.0
 
 - Fix: "raw" type could miss a slash
 - Enhancement: Add `actions`, `wiki` `pulse`, `people`, `network`,
