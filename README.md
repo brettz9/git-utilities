@@ -98,7 +98,7 @@ Run `-h` to get the commands:
 
 ## To-dos
 
-1. Add tests and coverage
+1. Add to tests and coverage
 1. Allow passing in cwd (or defaulting to `process.cwd()`).
 1. Refactor to make export which just returns the URL that would be used
 1. Document with some CLI examples
@@ -112,9 +112,9 @@ Run `-h` to get the commands:
 1. See <https://github.com/tjunnone/npm-check-updates/issues/570>; might
     split up so as to also be able to query `npm view . repository` (or
     `npm view <npm-pkg-name> repository`) and use that as a base to check
-    (via `HEAD` or API requests the presence of CHANGES files, licenses, etc.)
-    and also to use npm packages for opening their Github commit history,
-    etc. URLs.
+    (via `HEAD` or API requests the presence of CHANGES files, releases (with
+    text) licenses, etc.) and also to use npm packages for opening their
+    Github commit history, etc. URLs.
     1. Allow likes of ncu to choose a package by number, then querying it
         (with an option to query old version?), e.g., to get CHANGES,
         `/commits` URL, main `/tree` URL, etc.
