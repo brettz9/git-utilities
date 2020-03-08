@@ -120,6 +120,39 @@ describe('Git-utilities programmatic (Opening)', function () {
       );
     }));
   });
+
+  it('Opens misc.', function () {
+    return Promise.all([
+      'actions',
+      'wiki',
+      'pulse',
+      'people',
+      'network',
+      'community',
+      'graphs',
+      'settings',
+      'compare',
+      'projects',
+      'pulls',
+      'labels',
+      'milestones',
+      'deployments',
+      'issues',
+      'releases',
+      'packages',
+      'tags',
+      'branches'
+    ].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        `https://github.com/brettz9/git-utilities/${type}`
+      );
+    }));
+  });
 });
 
 describe('Git-utilities CLI', function () {
@@ -143,9 +176,9 @@ describe('Git-utilities CLI', function () {
       ], 5000
     );
 
+    expect(stderr).to.equal('');
     expect(stdout).to.equal(
       'URL: https://github.com/brettz9/git-utilities/blob/master/test/openGitURL.js\n'
     );
-    expect(stderr).to.equal('');
   });
 });

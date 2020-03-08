@@ -73,6 +73,43 @@ exports.openGitURL = async ({
     let url;
     switch (type) {
     default:
+
+    // Could have actions?query=workflow:"..." or actions/new or
+    // actions/runs/<run>
+    // Fallthrough
+    case 'actions':
+
+    // Could allow `wiki/_new`, `wiki/<page>` or `wiki/<page>/_edit`
+    // Fallthrough
+    case 'wiki':
+    case 'pulse':
+    case 'people':
+
+    // Could allow `security/advisories` and `security/policy`
+    // Could also allow `network/dependencies`, `network/members`,
+    //  `network/alerts`
+    // Fallthrough
+    case 'network':
+    case 'community':
+
+    // Could also be
+    // `graphs/<contributors|traffic|commit-activity|code-frequency>`
+    // Fallthrough
+    case 'graphs':
+    case 'settings': // Could allow various `settings/<subsection>`
+    case 'compare': // Alias to `pull` for making new PR?
+    case 'projects': // Could allow projects/new or projects/<num>
+    case 'pulls': // Could allow pull/<num>
+    case 'labels':
+    case 'milestones':
+    case 'deployments':
+    case 'issues': // Could allow issues/new
+    case 'releases': // Could allow /tag/<tag> and releases/new
+    case 'packages':
+    case 'tags':
+    case 'branches': // Could allow "yours"|"active"|"stale"|"all"
+      url = urlBase + '/' + type;
+      break;
     case 'view': case 'blob':
       url = urlBase + '/blob/' + (sha || branch) + '/' + fileRelativePath;
       break;
