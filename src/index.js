@@ -14,7 +14,6 @@ exports.openGitURL = async ({
   file,
   type = 'view',
   branch: userBranch = null,
-  help = false,
   diff = false,
   sha = null
 }) => {

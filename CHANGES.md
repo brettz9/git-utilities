@@ -1,5 +1,10 @@
 # CHANGES for @brettz9/git-utilities
 
+## ?
+
+- Testing: Begin tests with coverage
+- Maintenance: Add `.editorconfig`
+
 ## 1.6.0
 
 - Update: Per latest `isomorphic-git` API
