@@ -126,7 +126,7 @@ describe('Git-utilities CLI', function () {
   this.timeout(10000);
   it('Gets help', async function () {
     const {stderr, stdout} = await spawnPromise(
-      cliPath, ['--help']
+      cliPath, ['--help'], 5000
     );
 
     expect(stdout).to.contain('Open Git URL Utility');
@@ -138,12 +138,13 @@ describe('Git-utilities CLI', function () {
       cliPath, [
         '--type', 'view',
         '--branch', 'master',
+        '--dry-run',
         '--file', __filename
-      ]
+      ], 5000
     );
 
     expect(stdout).to.equal(
-      'https://github.com/brettz9/git-utilities/blob/master/test/openGitURL.js'
+      'URL: https://github.com/brettz9/git-utilities/blob/master/test/openGitURL.js\n'
     );
     expect(stderr).to.equal('');
   });

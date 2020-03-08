@@ -31,6 +31,11 @@ const optionDefinitions = [
     typeLabel: `{underline SHA}`
   },
   {
+    name: 'dry-run', type: Boolean,
+    description: 'Whether to just use a dry-run (to get any logging) ' +
+      'rather than to open.'
+  },
+  {
     name: 'help', alias: 'h', type: Boolean,
     description: 'Display this help guide'
   }

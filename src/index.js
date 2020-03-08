@@ -15,7 +15,8 @@ exports.openGitURL = async ({
   type = 'view',
   branch: userBranch = null,
   diff = false,
-  sha = null
+  sha = null,
+  dryRun = false
 }) => {
   const cwd = type === 'directory' && file === '.' ? process.cwd() : file;
 
@@ -107,7 +108,10 @@ exports.openGitURL = async ({
     }
 
     // eslint-disable-next-line no-console
-    console.log('url', url);
+    console.log('URL:', url);
+    if (dryRun) {
+      return;
+    }
     await open(url, {url: true}); // , {wait: true}
   } catch (err) {
     // eslint-disable-next-line no-console

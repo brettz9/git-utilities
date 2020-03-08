@@ -5,8 +5,11 @@
 - Fix: "raw" type could miss a slash
 - Enhancement: Add `commits` as alias to `history` type and `remove` as alias
     for `delete` type
+- Enhancement: Add `--dry-run` option
 - Testing: Begin tests with coverage
 - Maintenance: Add `.editorconfig`
+- npm: Update deps. (command-line-basics, isomorphic-git)
+- npm: Update devDeps.
 
 ## 1.6.0
 
