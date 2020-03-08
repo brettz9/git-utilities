@@ -57,4 +57,17 @@ describe('Git-utilities (Opening)', function () {
       );
     }));
   });
+
+  it('Opens blame', function () {
+    return Promise.all(['blame'].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        'https://github.com/brettz9/git-utilities/blame/master/test/openGitURL.js'
+      );
+    }));
+  });
 });
