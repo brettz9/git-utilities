@@ -132,4 +132,19 @@ describe('Git-utilities CLI', function () {
     expect(stdout).to.contain('Open Git URL Utility');
     expect(stderr).to.equal('');
   });
+
+  it('Opens view', async function () {
+    const {stderr, stdout} = await spawnPromise(
+      cliPath, [
+        '--type', 'view',
+        '--branch', 'master',
+        '--file', __filename
+      ]
+    );
+
+    expect(stdout).to.equal(
+      'https://github.com/brettz9/git-utilities/blob/master/test/openGitURL.js'
+    );
+    expect(stderr).to.equal('');
+  });
 });
