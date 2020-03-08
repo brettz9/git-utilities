@@ -1,6 +1,8 @@
-'use strict';
+import {resolve as pathResolve} from 'path';
+import proxyquire from 'proxyquire';
+import spawnPromise from './utilities/spawnPromise.js';
 
-const proxyquire = require('proxyquire');
+const cliPath = pathResolve(__dirname, '../bin/open-git-url.js');
 
 let openURL = null;
 const {openGitURL} = proxyquire('../src/index.js', {
@@ -24,7 +26,7 @@ const {openGitURL} = proxyquire('../src/index.js', {
   }
 });
 
-describe('Git-utilities (Opening)', function () {
+describe('Git-utilities programmatic (Opening)', function () {
   beforeEach(() => {
     openURL = null;
   });
@@ -117,5 +119,17 @@ describe('Git-utilities (Opening)', function () {
         'https://github.com/brettz9/git-utilities/delete/master/test/openGitURL.js'
       );
     }));
+  });
+});
+
+describe('Git-utilities CLI', function () {
+  this.timeout(10000);
+  it('Gets help', async function () {
+    const {stderr, stdout} = await spawnPromise(
+      cliPath, ['--help']
+    );
+
+    expect(stdout).to.contain('Open Git URL Utility');
+    expect(stderr).to.equal('');
   });
 });

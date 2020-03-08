@@ -14,7 +14,7 @@
     "example-shell": "./bin/open-git-url.sh $INIT_CWD/.eslintrc.js",
     "example-js": "./bin/open-git-url.js $INIT_CWD/.eslintrc.js",
     "cli": "./bin/open-git-url.js",
-    "test": "nyc mocha --require chai/register-expect"
+    "test": "nyc mocha --require esm --require chai/register-expect"
   },
   "author": "Brett Zamir",
   "contributors": [],
@@ -61,6 +61,7 @@
     "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-unicorn": "^16.1.1",
+    "esm": "^3.2.25",
     "mocha": "^7.1.0",
     "nyc": "^15.0.0",
     "proxyquire": "^2.1.3",
