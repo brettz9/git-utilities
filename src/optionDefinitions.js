@@ -18,6 +18,11 @@ const optionDefinitions = [
     typeLabel: `{underline ["view" (or "blob")|"raw"|"blame"|"history" ` +
                 `(or "commits")|"edit"|"delete" (or "remove")|"directory" ` +
                 `(or "tree")|"commit"]}`
+                // Todo: Figure out how to add this without crowding
+                /* |"actions"|"wiki"|"pulse"|"people"|` +
+                `"network"|"community"|"graphs"|"settings"|compare"|` +
+                `"projects"|"pulls|"labels"|"milestones"|"deployments"|` +
+                `"issues"|"releases"|"packages"|"tags"|"branches]}` */
   },
   {
     name: 'diff', alias: 'd', type: String,
