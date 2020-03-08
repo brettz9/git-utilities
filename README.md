@@ -117,7 +117,9 @@ Run `-h` to get the commands:
     Github commit history, etc. URLs.
     1. Allow likes of ncu to choose a package by number, then querying it
         (with an option to query old version?), e.g., to get CHANGES,
-        `/commits` URL, main `/tree` URL, etc.
+        `/commits` URL, main `/tree` URL, etc. (Would be like `--interactive`
+        but showing all by default and allowing actions after all listed,
+        including, but not limited to, opportunity to update all.)
 1. Ensure working with global install (useful to be able to use on CL to
     open a Git URL from within the directory of a repo)
 1. Change to work with any Git site (allowing templates for URL building)
