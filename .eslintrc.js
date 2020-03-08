@@ -11,6 +11,7 @@ module.exports = {
     settings: {
       polyfills: [
         // Not sure why compat is reporting for non-Node
+        "Promise.all",
         "URL"
       ],
       jsdoc: {

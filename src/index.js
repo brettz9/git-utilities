@@ -83,7 +83,7 @@ exports.openGitURL = async ({
       url = urlBase.replace(
         'https://github.com',
         'https://raw.githubusercontent.com'
-      ) + (sha || branch) + '/' + fileRelativePath;
+      ).replace(/\/$/u, '') + '/' + (sha || branch) + '/' + fileRelativePath;
       break;
     case 'blame':
       url = urlBase + '/blame/' + (sha || branch) + '/' + fileRelativePath;

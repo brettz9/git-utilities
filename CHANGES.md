@@ -2,6 +2,7 @@
 
 ## ?
 
+- Fix: "raw" type could miss a slash
 - Testing: Begin tests with coverage
 - Maintenance: Add `.editorconfig`
 

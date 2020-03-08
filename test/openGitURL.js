@@ -19,14 +19,42 @@ describe('Git-utilities (Opening)', function () {
   beforeEach(() => {
     openURL = null;
   });
-  it('Opens', async function () {
-    await openGitURL({
-      file: __filename,
-      branch: 'master',
-      type: 'view'
-    });
-    expect(openURL).to.equal(
-      'https://github.com/brettz9/git-utilities/blob/master/test/openGitURL.js'
-    );
+  it('Opens view/blob', function () {
+    return Promise.all(['view', 'blob'].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        'https://github.com/brettz9/git-utilities/blob/master/test/openGitURL.js'
+      );
+    }));
+  });
+
+  it('Opens directory/tree', function () {
+    return Promise.all(['directory', 'tree'].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        'https://github.com/brettz9/git-utilities/tree/master/test'
+      );
+    }));
+  });
+
+  it('Opens raw', function () {
+    return Promise.all(['raw'].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        'https://raw.githubusercontent.com/brettz9/git-utilities/master/test/openGitURL.js'
+      );
+    }));
   });
 });
