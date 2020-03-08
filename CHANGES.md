@@ -3,6 +3,10 @@
 ## ?
 
 - Fix: "raw" type could miss a slash
+- Enhancement: Add `actions`, `wiki` `pulse`, `people`, `network`,
+    `community`, `graphs`, `settings`', `compare`, `projects`, `pulls`,
+    `labels`, `milestones`, `deployments`, `issues`, `releases`, `packages`,
+    `tags`, `branches`
 - Enhancement: Add `commits` as alias to `history` type and `remove` as alias
     for `delete` type
 - Enhancement: Add `--dry-run` option
