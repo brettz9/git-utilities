@@ -2,7 +2,10 @@ import {resolve as pathResolve} from 'path';
 import proxyquire from 'proxyquire';
 import spawnPromise from './utilities/spawnPromise.js';
 
-const cliPath = pathResolve(__dirname, '../bin/open-git-url.js');
+const cliPath = pathResolve(
+  __dirname,
+  './utilities/stubbed-open-git-url-cli.js'
+);
 
 let openURL = null;
 const {openGitURL} = proxyquire('../src/index.js', {

@@ -39,6 +39,15 @@ module.exports = {
       }
     },
     {
+      files: 'test/utilities/stubbed-open-git-url-cli.js',
+      extends: [
+        'plugin:node/recommended-script'
+      ],
+      rules: {
+        'node/shebang': 0
+      }
+    },
+    {
       files: ['**/*.md'],
       rules: {
         'eol-last': 'off',
