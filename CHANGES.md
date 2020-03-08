@@ -3,6 +3,7 @@
 ## ?
 
 - Fix: "raw" type could miss a slash
+- Enhancement: Add `commits` as alias to `history` type
 - Testing: Begin tests with coverage
 - Maintenance: Add `.editorconfig`
 

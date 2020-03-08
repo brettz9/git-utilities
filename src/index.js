@@ -88,6 +88,7 @@ exports.openGitURL = async ({
     case 'blame':
       url = urlBase + '/blame/' + (sha || branch) + '/' + fileRelativePath;
       break;
+    case 'commits':
     case 'history':
       url = urlBase + '/commits/' + (sha || branch) + '/' +
         (fileRelativePath || '');

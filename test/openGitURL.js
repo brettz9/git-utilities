@@ -70,4 +70,17 @@ describe('Git-utilities (Opening)', function () {
       );
     }));
   });
+
+  it('Opens commits/history', function () {
+    return Promise.all(['commits', 'history'].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        'https://github.com/brettz9/git-utilities/commits/master/test/openGitURL.js'
+      );
+    }));
+  });
 });
