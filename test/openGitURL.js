@@ -83,4 +83,30 @@ describe('Git-utilities (Opening)', function () {
       );
     }));
   });
+
+  it('Opens edit', function () {
+    return Promise.all(['edit'].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        'https://github.com/brettz9/git-utilities/edit/master/test/openGitURL.js'
+      );
+    }));
+  });
+
+  it('Opens delete', function () {
+    return Promise.all(['delete', 'remove'].map(async (type) => {
+      await openGitURL({
+        file: __filename,
+        branch: 'master',
+        type
+      });
+      expect(openURL).to.equal(
+        'https://github.com/brettz9/git-utilities/delete/master/test/openGitURL.js'
+      );
+    }));
+  });
 });

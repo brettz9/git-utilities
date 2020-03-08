@@ -3,7 +3,8 @@
 ## ?
 
 - Fix: "raw" type could miss a slash
-- Enhancement: Add `commits` as alias to `history` type
+- Enhancement: Add `commits` as alias to `history` type and `remove` as alias
+    for `delete` type
 - Testing: Begin tests with coverage
 - Maintenance: Add `.editorconfig`
 

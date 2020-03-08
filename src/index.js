@@ -8,7 +8,7 @@ const open = require('open');
 const dialog = require('dialog-node');
 const ngu = require('normalize-git-url');
 
-// Todo: Make logging optional
+// Todo: Make logging optional and/or in CLI only
 
 exports.openGitURL = async ({
   file,
@@ -63,7 +63,7 @@ exports.openGitURL = async ({
           branch = await git.currentBranch({fs, dir: gitProjectPath});
         } catch (err) {
           // eslint-disable-next-line no-console
-          console.log('err', err);
+          console.error('err', err);
           throw new Error('Error getting current branch');
         }
       }
@@ -88,8 +88,7 @@ exports.openGitURL = async ({
     case 'blame':
       url = urlBase + '/blame/' + (sha || branch) + '/' + fileRelativePath;
       break;
-    case 'commits':
-    case 'history':
+    case 'commits': case 'history':
       url = urlBase + '/commits/' + (sha || branch) + '/' +
         (fileRelativePath || '');
       break;
@@ -102,7 +101,7 @@ exports.openGitURL = async ({
     case 'edit':
       url = urlBase + '/edit/' + branch + '/' + fileRelativePath;
       break;
-    case 'delete':
+    case 'delete': case 'remove':
       url = urlBase + '/delete/' + branch + '/' + fileRelativePath;
       break;
     }

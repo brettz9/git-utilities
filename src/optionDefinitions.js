@@ -15,8 +15,9 @@ const optionDefinitions = [
     // Todo: Might allow multiple to open multiple URLs
     name: 'type', alias: 't', type: String,
     description: 'Type of operation.  Defaults to "view".',
-    typeLabel: `{underline ["view" (or "blob")|"raw"|"blame"|"history"|` +
-                  `"edit"|"delete"|"directory" (or "tree")|"commit"]}`
+    typeLabel: `{underline ["view" (or "blob")|"raw"|"blame"|"history" ` +
+                `(or "commits")|"edit"|"delete" (or "remove")|"directory" ` +
+                `(or "tree")|"commit"]}`
   },
   {
     name: 'diff', alias: 'd', type: String,
