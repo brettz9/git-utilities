@@ -1,5 +1,9 @@
 # CHANGES for @brettz9/git-utilities
 
+## ?
+
+- npm: Update devDeps. and `package-lock.json`
+
 ## 1.7.0
 
 - Fix: "raw" type could miss a slash
