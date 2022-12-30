@@ -32,7 +32,7 @@
     "url": "https://github.com/brettz9/git-utilities"
   },
   "dependencies": {
-    "command-line-basics": "^0.8.0",
+    "command-line-basics": "^1.1.0",
     "dialog-node": "git+https://github.com/brettz9/dialog-node.git#html",
     "find-up": "^4.1.0",
     "isomorphic-git": "^1.1.6",
@@ -43,7 +43,7 @@
     "@mysticatea/eslint-plugin": "^13.0.0",
     "babel-eslint": "^10.1.0",
     "chai": "^4.2.0",
-    "command-line-publish": "^0.7.0",
+    "command-line-publish": "^1.1.0",
     "eslint": "^6.8.0",
     "eslint-config-ash-nazg": "^17.4.0",
     "eslint-config-standard": "^14.1.0",
