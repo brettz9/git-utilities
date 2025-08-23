@@ -7,6 +7,7 @@ const mainScript = require('../src/index.js');
 
 const optionDefinitions = cliBasics(
   join(__dirname, '../src/optionDefinitions.js'), {
+    packageJsonPath: join(__dirname, '../package.json'),
     commandLineArgsOptions: {
       camelCase: true
     }
